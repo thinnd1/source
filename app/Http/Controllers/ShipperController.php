@@ -161,4 +161,15 @@ class ShipperController extends Controller
         $get_tai_xe = DB::table('tbl_shippers')
             ->paginate(10);
     }
+
+    public function form_ly_do($id)
+    {
+        return view('shippers.ly_do_fail');
+    }
+
+    public function logout_shipper()
+    {
+        Session::flush();
+        return \redirect()->route('formLoginShipper');
+    }
 }

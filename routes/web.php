@@ -27,6 +27,10 @@ Route::prefix('shipper')->group(function () {
     Route::get('lich-su-nhan-hang', 'ShipperController@form_lich_su_nhan_hang')->name('history_shipper');
     Route::get('order_thanh_cong/{id}', 'ShipperController@order_thanh_cong')->name('order_thanh_cong');
     Route::get('order_that_bai/{id}', 'ShipperController@order_that_bai')->name('order_that_bai');
+    Route::post('ly_do/{id}', 'ShipperController@ly_do_fail')->name('ly_do_fail');
+    Route::get('form_ly_do/{id}', 'ShipperController@form_ly_do')->name('form_ly_do');
+    Route::get('logout-shipper', 'ShipperController@logout_shipper')->name('logout_shipper');
+
 });
 
 // Front-end
