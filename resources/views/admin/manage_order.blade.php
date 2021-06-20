@@ -51,7 +51,7 @@
                         <td>{{ $order -> created_at }}</td>
                         <td>{{number_format($order -> order_total, 0) }} VND</td>
                         <td>{{ $order -> order_status }}</td>
-                        <td class="text-center">...</td>
+                        <td class="text-center">{{ isset($order->note) ? $order->note : '' }}</td>
                         <td class="text-center">
                             <a href="{{URL::to('/view-order/'.$order->order_id)}}}" class="active" ui-toggle-class="">
                                 <i class="fa fa-edit text-success text-active"></i>
