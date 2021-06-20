@@ -47,12 +47,13 @@
                                         <td>{{ $item->shipping_notes }}</td>
                                         <td>
                                             @if($item->order_status == "Xác nhận thanh toán")
-                                                <a href="" class="btn btn-success">Thành công</a>
+                                                <button class="btn btn-success">Thành công</button>
                                             @elseif($item->order_status == "Giao Hàng Thất Bại")
-                                                <a href="" class="btn btn-warning">Thất Bại </a>
+                                                <button class="btn btn-warning">Thất Bại</button>
+                                                <a href="#">Lý do</a>
                                             @else
                                                 <a href="{{ route('order_thanh_cong', ['id' => $item->order_id]) }}" class="btn btn-success">Thành công</a>
-                                                <a href="{{ route('order_thanh_cong', ['id' => $item->order_id]) }}" class="btn btn-warning">Thất Bại</a>
+                                                <a href="{{ route('order_that_bai', ['id' => $item->order_id]) }}" class="btn btn-warning">Thất Bại</a>
                                             @endif
 
                                         </td>
@@ -61,7 +62,7 @@
                             </tobdy>
                         </table>
                     </div>
-{{--                    {{ $all_order->links() }}--}}
+                    {{--                    {{ $all_order->links() }}--}}
                 </div>
             </div><!-- /.row -->
         </div>

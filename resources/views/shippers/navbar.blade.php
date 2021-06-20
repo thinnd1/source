@@ -6,7 +6,7 @@
             <ul class="nav navbar-nav side-nav">
                 <li><a href="{{ route('list-order') }}"><i class="fa fa-dashboard"></i> Đơn hàng </a></li>
                 <li><a href="{{ route('history_shipper') }}"><i class="fa fa-dashboard"></i> Lịch sử giao hàng </a></li>
-                <li><a href="{{ route('logout') }}" onclick="return confirm('Bạn có muốn thoát ko ?')"><i class="fa fa-table"></i> Log Out </a></li>
+                <li><a href="{{ route('logout_shipper') }}" onclick="return confirm('Bạn có muốn thoát ko ?')"><i class="fa fa-table"></i> Log Out </a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

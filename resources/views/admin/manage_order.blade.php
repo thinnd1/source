@@ -24,6 +24,7 @@
                     <option value="Đang giao hàng">Đang giao hàng</option>
                     <option value="Hủy đơn hàng">Hủy đơn hàng</option>
                     <option value="Xác nhận thanh toán">Xác nhận thanh toán</option>
+                    <option value="Giao Hàng Thất Bại">Giao Hàng Thất Bại</option>
                     <option value="Xem tất cả">Xem tất cả</option>
                 </select>
             </div>
