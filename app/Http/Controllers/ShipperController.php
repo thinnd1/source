@@ -151,11 +151,6 @@ class ShipperController extends Controller
         return \redirect()->back();
     }
 
-    public function lich_su_nhan_hang()
-    {
-
-    }
-
     public function get_tai_xe()
     {
         $get_tai_xe = DB::table('tbl_shippers')
@@ -164,7 +159,14 @@ class ShipperController extends Controller
 
     public function form_ly_do($id)
     {
-        return view('shippers.ly_do_fail');
+        $ly_do = DB::table('shipper_order')->where('id_shipper_order', $id)->first();
+        return view('shippers.ly_do_fail', compact('ly_do'));
+    }
+
+    public function ly_do_fail(Request $request, $id)
+    {
+        DB::table('shipper_order')->where('id_shipper_order', $id)->update(['note' => $request->note_ly_do]);
+        return \redirect()->route('history_shipper');
     }
 
     public function logout_shipper()

@@ -32,7 +32,7 @@
                                 <th>Tên Khách Hàng</th>
                                 <th>Tổng giá tiền</th>
                                 <th>Địa chỉ</th>
-                                <th>Ghi Chú</th>
+                                <th>Lý do fail</th>
                                 <th width="15%">Trạng thái</th>
                             </tr>
                             </thead>
@@ -44,13 +44,13 @@
                                         <td>{{ $item->shipping_name }}</td>
                                         <td>{{ $item->order_total }}</td>
                                         <td>{{ $item->shipping_address }}</td>
-                                        <td>{{ $item->shipping_notes }}</td>
+                                        <td>{{ $item->note }}</td>
                                         <td>
                                             @if($item->order_status == "Xác nhận thanh toán")
                                                 <button class="btn btn-success">Thành công</button>
                                             @elseif($item->order_status == "Giao Hàng Thất Bại")
                                                 <button class="btn btn-warning">Thất Bại</button>
-                                                <a href="#">Lý do</a>
+                                                <a href="{{ route('form_ly_do', ['id' => $item->id_shipper_order]) }}">Lý do</a>
                                             @else
                                                 <a href="{{ route('order_thanh_cong', ['id' => $item->order_id]) }}" class="btn btn-success">Thành công</a>
                                                 <a href="{{ route('order_that_bai', ['id' => $item->order_id]) }}" class="btn btn-warning">Thất Bại</a>
@@ -62,7 +62,6 @@
                             </tobdy>
                         </table>
                     </div>
-                    {{--                    {{ $all_order->links() }}--}}
                 </div>
             </div><!-- /.row -->
         </div>
