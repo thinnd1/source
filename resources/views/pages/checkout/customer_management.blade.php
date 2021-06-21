@@ -55,6 +55,7 @@
                             <th>Mã HD</th>
                             <th>Ngày Mua Hàng</th>
                             <th>Trạng thái đơn hàng</th>
+                            <th></th>
                         </tr>
                         @foreach ($all_order as $item)
                         <tr>
@@ -62,6 +63,11 @@
                                     value="{{$item->order_id}}" class="order-id" hidden readonly></td>
                             <td>{{ date('d/m/Y', strtotime($item->created_at)) }}</td>
                             <td>{{$item->order_status}}</td>
+                            @if($item->order_status == 'Xác nhận thanh toán')
+                                <td>
+                                    <a href="">Trả Hàng</a>
+                                </td>
+                            @endif
                         </tr>
                         @endforeach
                     </table>
