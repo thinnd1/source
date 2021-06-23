@@ -44,6 +44,17 @@ class ProductController extends Controller
         return view('admin_layout')->with('admin.all_product', $manager_product);
     }
 
+    public function get_tra_hang()
+    {
+        $this->AuthLogin();
+        $all_product = DB::table('tbl_return_goods')
+            ->join('tbl_order', 'tbl_order.order_id', '=', 'tbl_return_goods.id_order')
+            ->join('tbl_order_detail', 'tbl_order_detail.order_id', '=', 'tbl_order.order_id')
+            ->get();
+        $manager_product = view('admin.return_goods')->with('all_product', $all_product);
+        return view('admin_layout')->with('admin.all_product', $manager_product);
+    }
+
     public function save_product(Request $request)
     {
         $this->AuthLogin();

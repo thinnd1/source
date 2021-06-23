@@ -33,6 +33,9 @@ Route::prefix('shipper')->group(function () {
 
 });
 
+Route::post('tra-hang', 'ShipperController@tra_hang')->name('tra_hang');
+Route::get('get_tra_hang', 'ProductController@get_tra_hang')->name('get_tra_hang');
+
 // Front-end
 
 Route::get('/','HomeController@index' );
