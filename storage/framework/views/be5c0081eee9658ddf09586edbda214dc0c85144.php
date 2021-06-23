@@ -12,13 +12,13 @@
   <title>Admin - Sport Store</title>
 
   <!-- Custom fonts for this template-->
-  <link href="{{asset('/backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href="<?php echo e(asset('/backend/vendor/fontawesome-free/css/all.min.css')); ?>" rel="stylesheet" type="text/css">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{asset('/backend/css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <link href="<?php echo e(asset('/backend/css/sb-admin-2.min.css')); ?>" rel="stylesheet">
 
 </head>
 
@@ -31,7 +31,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: grey; background-image:none; font-size: 20px;">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href={{URL::to( '/dashboard')}}>
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href=<?php echo e(URL::to( '/dashboard')); ?>>
         <div class="sidebar-brand-icon rotate-n-15">
 <!-- MAT CUOI TRONG ADMIN -->
         <!--  <i class="fas fa-laugh-wink"></i> -->
@@ -44,7 +44,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href={{URL::to( '/dashboard')}}>
+        <a class="nav-link" href=<?php echo e(URL::to( '/dashboard')); ?>>
           <i class="fas fa-fw fa-tachometer-alt" style="color:#ff7f00"></i>
           <span style="color:#ffcc00">Tổng quan</span></a>
       </li>
@@ -57,12 +57,12 @@
         Thống kê
       </div>
       <li class="nav-item ">
-        <a class="nav-link" href={{URL::to( '/reports')}}>
+        <a class="nav-link" href=<?php echo e(URL::to( '/reports')); ?>>
           <i class="fas fa-calculator" style="color:#ff7f00"></i>
           <span style="color:#ffcc00">Báo cáo - Thống kê</span></a>
       </li>
       <!-- <li class="nav-item ">
-        <a class="nav-link" href={{URL::to( '/apriori')}}>
+        <a class="nav-link" href=<?php echo e(URL::to( '/apriori')); ?>>
           <i class="fas fa-calculator"></i>
           <span>Apriori</span></a>
       </li> -->
@@ -85,7 +85,7 @@
         <div id="bill" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Quản lý đơn hàng</h6>
-            <a class="collapse-item" href="{{URL::to('/manage-order')}}">Quản lý đơn hàng</a>
+            <a class="collapse-item" href="<?php echo e(URL::to('/manage-order')); ?>">Quản lý đơn hàng</a>
           </div>
         </div>
       </li>
@@ -100,9 +100,9 @@
         <div id="product" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Quản lý sản phẩm</h6>
-            <a class="collapse-item" href="{{URL::to('/add-product')}}">Thêm sản phẩm</a>
-            <a class="collapse-item" href="{{URL::to('/all-product')}}">Danh sách sản phẩm</a>
-            <a class="collapse-item" href="{{ route('get_tra_hang') }}">Danh sách sản phẩm trả</a>
+            <a class="collapse-item" href="<?php echo e(URL::to('/add-product')); ?>">Thêm sản phẩm</a>
+            <a class="collapse-item" href="<?php echo e(URL::to('/all-product')); ?>">Danh sách sản phẩm</a>
+            <a class="collapse-item" href="<?php echo e(route('get_tra_hang')); ?>">Danh sách sản phẩm trả</a>
           </div>
         </div>
       </li>
@@ -117,8 +117,8 @@
         <div id="category" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Quản lý danh mục</h6>
-            <a class="collapse-item" href="{{URL::to('/add-category-product')}}">Thêm danh mục</a>
-            <a class="collapse-item" href="{{URL::to('/all-category-product')}}">Danh sách danh mục</a>
+            <a class="collapse-item" href="<?php echo e(URL::to('/add-category-product')); ?>">Thêm danh mục</a>
+            <a class="collapse-item" href="<?php echo e(URL::to('/all-category-product')); ?>">Danh sách danh mục</a>
           </div>
         </div>
       </li>
@@ -132,13 +132,13 @@
             <div id="brand" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý thương hiệu</h6>
-                <a class="collapse-item" href="{{URL::to('/add-brand-product')}}">Thêm thương hiệu</a>
-                <a class="collapse-item" href="{{URL::to('/all-brand-product')}}">Danh sách thương hiệu</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/add-brand-product')); ?>">Thêm thương hiệu</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/all-brand-product')); ?>">Danh sách thương hiệu</a>
               </div>
             </div>
           </li>
 
-          {{-- Quản lý khách hàng --}}
+          
 
           <li  class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#customer" aria-expanded="true" aria-controls="collapseUtilities">
@@ -148,14 +148,14 @@
             <div id="customer" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý khách hàng</h6>
-                <a class="collapse-item" href="{{URL::to('/all-customer')}}">Danh sách khách hàng</a>
-                <a class="collapse-item" href="{{URL::to('/all-customer')}}">Danh sách tài xế</a>
-                <a class="collapse-item" href="{{URL::to('/all-contact-info')}}">Thông tin cần liên hệ</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/all-customer')); ?>">Danh sách khách hàng</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/all-customer')); ?>">Danh sách tài xế</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/all-contact-info')); ?>">Thông tin cần liên hệ</a>
               </div>
             </div>
           </li>
 
-          {{-- Quản lý mã khuyến mãi --}}
+          
 
           <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#coupon" aria-expanded="true" aria-controls="collapseUtilities">
@@ -165,8 +165,8 @@
             <div id="coupon" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý khuyến mãi</h6>
-                <a class="collapse-item" href="{{URL::to('/add-coupon')}}">Thêm mã khuyến mãi</a>
-                <a class="collapse-item" href="{{URL::to('/all-coupon')}}">Danh sách mã khuyến mãi</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/add-coupon')); ?>">Thêm mã khuyến mãi</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/all-coupon')); ?>">Danh sách mã khuyến mãi</a>
               </div>
             </div>
           </li>
@@ -181,8 +181,8 @@
             <div id="slide" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý ảnh bìa</h6>
-                <a class="collapse-item" href="{{URL::to('/add-slide')}}">Thêm ảnh bìa</a>
-                <a class="collapse-item" href="{{URL::to('/all-slide')}}">Danh sách ảnh bìa</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/add-slide')); ?>">Thêm ảnh bìa</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/all-slide')); ?>">Danh sách ảnh bìa</a>
               </div>
             </div>
           </li>
@@ -198,13 +198,13 @@
             <div id="blog" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý tin tức</h6>
-                <a class="collapse-item" href="{{URL::to('/add-blog')}}">Thêm tin tức</a>
-                <a class="collapse-item" href="{{URL::to('/all-blog')}}">Danh sách tin tức</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/add-blog')); ?>">Thêm tin tức</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/all-blog')); ?>">Danh sách tin tức</a>
               </div>
             </div>
           </li>
 
-          {{-- Quản lý hình ảnh --}}
+          
 
           <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#images" aria-expanded="true" aria-controls="collapseUtilities">
@@ -214,8 +214,8 @@
             <div id="images" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý hình ảnh</h6>
-                <a class="collapse-item" href="{{URL::to('/add-image')}}">Thêm hình ảnh</a>
-                <a class="collapse-item" href="{{URL::to('/all-image')}}">Danh sách hình ảnh</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/add-image')); ?>">Thêm hình ảnh</a>
+                <a class="collapse-item" href="<?php echo e(URL::to('/all-image')); ?>">Danh sách hình ảnh</a>
               </div>
             </div>
           </li>
@@ -248,20 +248,10 @@
 
           <!-- Topbar Search -->
 
-          {{-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form> --}}
+          
 
           <div class="logo pull-left">
-            <a href="{{URL::to('/trang-chu')}}"><img style="width:15%" src="{{asset('/frontend/images/logo-sport.png')}}"
+            <a href="<?php echo e(URL::to('/trang-chu')); ?>"><img style="width:15%" src="<?php echo e(asset('/frontend/images/logo-sport.png')); ?>"
                 alt="" /></a>
           </div>
 
@@ -310,7 +300,7 @@
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 
 
-                <a class="dropdown-item" href="{{URL::to('/info-admin/'.$admin_id)}}}">
+                <a class="dropdown-item" href="<?php echo e(URL::to('/info-admin/'.$admin_id)); ?>}">
 
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Thông tin tài khoản
@@ -333,7 +323,7 @@
         <div class="container-fluid">
           <section>
 
-            @yield('admin_content')
+            <?php echo $__env->yieldContent('admin_content'); ?>
 
           </section>
         </div>
@@ -374,29 +364,30 @@
           <div class="modal-body">Chọn "đăng xuất" để kết thúc phiên làm việc.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
-            <a class="btn btn-primary" href="{{URL::to('/logout')}}">Đăng xuất</a>
+            <a class="btn btn-primary" href="<?php echo e(URL::to('/logout')); ?>">Đăng xuất</a>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('backend/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="<?php echo e(asset('backend/vendor/jquery/jquery.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{asset('backend/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="<?php echo e(asset('backend/vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('backend/js/sb-admin-2.min.js')}}"></script>
+    <script src="<?php echo e(asset('backend/js/sb-admin-2.min.js')); ?>"></script>
     <!-- Page level plugins -->
 
     <!-- Page level custom scripts -->
     <!-- JS quản lý đơn hàng -->
-    <script src="{{asset('backend/vendor/datatables/jquery.dataTables.js')}}"></script>
-    <script src="{{asset('backend/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
-    <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
+    <script src="<?php echo e(asset('backend/vendor/datatables/jquery.dataTables.js')); ?>"></script>
+    <script src="<?php echo e(asset('backend/vendor/datatables/dataTables.bootstrap4.js')); ?>"></script>
+    <script src="<?php echo e(asset('backend/js/demo/datatables-demo.js')); ?>"></script>
 
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\source\resources\views/admin_layout.blade.php ENDPATH**/ ?>

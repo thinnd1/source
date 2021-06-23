@@ -1,7 +1,6 @@
-@extends('layout_update')
-@section('content_update')
+<?php $__env->startSection('content_update'); ?>
 <div id="contact-page" class="container" style="width:100%">
-    <meta name="_token" content="{{csrf_token()}}" />
+    <meta name="_token" content="<?php echo e(csrf_token()); ?>" />
     <div class="bg">
         <div class="row">
             <div class="col-sm-5">
@@ -17,17 +16,17 @@
                     <div class="form-group col-md-12">
                         <label for="customer_email" style="font-size: 15px">Email:</label>
                         <input type="text" name="customer_email" id="customer_email" class="form-control"
-                            required="required" readonly placeholder="Email" value="{{$view_customer->customer_email}}">
+                            required="required" readonly placeholder="Email" value="<?php echo e($view_customer->customer_email); ?>">
                     </div>
                     <div class="form-group col-md-12">
                         <label for="customer_name" style="font-size: 15px">Tên:</label>
                         <input type="text" name="customer_name" id="customer_name" class="form-control"
-                            required="required" placeholder="Tên" value="{{$view_customer->customer_name}}">
+                            required="required" placeholder="Tên" value="<?php echo e($view_customer->customer_name); ?>">
                     </div>
                     <div class="form-group col-md-12">
                         <label for="customer_phone" style="font-size: 15px">Số điện thoại:</label>
                         <input type="text" name="customer_phone" id="customer_phone" class="form-control"
-                            required="required" placeholder="Số điện thoại" value="{{$view_customer->customer_phone}}">
+                            required="required" placeholder="Số điện thoại" value="<?php echo e($view_customer->customer_phone); ?>">
                     </div>
                     <div class="show-change-password"></div>
                     <div class="form-group col-md-12">
@@ -41,7 +40,7 @@
                             <input type="button" class="btn btn-primary btn-change-detail" value="Cập nhật">
                         </div>
                         <div class="form-group col-md-6">
-                            <a href="{{URL::to('/trang-chu')}}" style="background-color: crimson"
+                            <a href="<?php echo e(URL::to('/trang-chu')); ?>" style="background-color: crimson"
                                 class="btn btn-primary"> Hủy</a>
                         </div>
                     </div>
@@ -57,19 +56,19 @@
                             <th>Trạng thái đơn hàng</th>
                             <th></th>
                         </tr>
-                        @foreach ($all_order as $item)
+                        <?php $__currentLoopData = $all_order; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td><a href="#" class="show-modal-order-detail">HD{{$item->order_id}}</a> <input type="text"
-                                    value="{{$item->order_id}}" class="order-id" hidden readonly></td>
-                            <td>{{ date('d/m/Y', strtotime($item->created_at)) }}</td>
-                            <td>{{$item->order_status}}</td>
-                            @if($item->order_status == 'Xác nhận thanh toán')
+                            <td><a href="#" class="show-modal-order-detail">HD<?php echo e($item->order_id); ?></a> <input type="text"
+                                    value="<?php echo e($item->order_id); ?>" class="order-id" hidden readonly></td>
+                            <td><?php echo e(date('d/m/Y', strtotime($item->created_at))); ?></td>
+                            <td><?php echo e($item->order_status); ?></td>
+                            <?php if($item->order_status == 'Xác nhận thanh toán'): ?>
                                 <td>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Trả Hàng</button>
                                 </td>
-                            @endif
+                            <?php endif; ?>
                         </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </table>
                 </div>
             </div>
@@ -86,8 +85,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('tra_hang') }}" method="post">
-                @csrf
+            <form action="<?php echo e(route('tra_hang')); ?>" method="post">
+                <?php echo csrf_field(); ?>
                 <div class="modal-body">
 
                     <div class="form-group">
@@ -113,7 +112,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <!--Header-->
-            {{-- <input class="modal-product-id" id="modal-product-id" type="text" > --}}
+            
             <div style="font-size:20px; margin: 5px 0 5px"
                 class="card-header  text-primary border-botton border-primary text-center">
                 <b>THÔNG TIN ĐƠN HÀNG</b>
@@ -215,7 +214,7 @@
     </div>
 </div>
 </section>
-<script src="{{asset('/frontend/js/jquery.js')}}"></script>
+<script src="<?php echo e(asset('/frontend/js/jquery.js')); ?>"></script>
 <script>
     function formatNumber(num) {
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -230,7 +229,7 @@
                 }
             });
             $.ajax({
-                url: "{{ url('/cus-view-order') }}",
+                url: "<?php echo e(url('/cus-view-order')); ?>",
 
                 method: 'post',
                 data: {
@@ -268,7 +267,7 @@
                     $('.btn-delete-order').remove();
                     if (data1.order_status == 'Đang chờ xử lý') {
                         var button =
-                            `<a type="button" href="{{ url('/cus-delete-order/`+data1.order_id+`') }}" class="btn btn-danger btn-delete-order" style="margin-top: 15px">Hủy đơn hàng</a>
+                            `<a type="button" href="<?php echo e(url('/cus-delete-order/`+data1.order_id+`')); ?>" class="btn btn-danger btn-delete-order" style="margin-top: 15px">Hủy đơn hàng</a>
                             <a type="button" class="btn btn-primary btn-delete-order" data-dismiss="modal" style="margin-top: 15px">Đóng</a>`;
                         $('.show-button-delete-order').append(button);
                     }else{
@@ -336,7 +335,7 @@
                     }
                 });
                 $.ajax({
-                    url: "{{ url('/update-customer') }}",
+                    url: "<?php echo e(url('/update-customer')); ?>",
                     method: 'post',
                     data: {
                         customer_email: email,
@@ -363,7 +362,7 @@
                     }
                 });
                 $.ajax({
-                    url: "{{ url('/update-customer') }}",
+                    url: "<?php echo e(url('/update-customer')); ?>",
                     method: 'post',
                     data: {
                         customer_email: email,
@@ -386,4 +385,6 @@
     });
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout_update', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\source\resources\views/pages/checkout/customer_management.blade.php ENDPATH**/ ?>

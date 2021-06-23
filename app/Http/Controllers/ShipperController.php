@@ -174,4 +174,13 @@ class ShipperController extends Controller
         Session::flush();
         return \redirect()->route('formLoginShipper');
     }
+
+    public function tra_hang(Request $request)
+    {
+        DB::table('tbl_return_goods')->insert([
+            'id_order' => $request->id_order,
+            'ly_do' => $request->ly_do
+        ]);
+        return \redirect()->back();
+    }
 }
