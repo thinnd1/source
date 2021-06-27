@@ -261,7 +261,7 @@ Route::get('/delete-blog/{id}','BlogController@delete_blog' );
 
 //Report page
 Route::get('/reports','ReportController@reports' );
-Route::post('/reports-detail','ReportController@reports_detail' );
+Route::post('/reports-detail','ReportController@reports_detail')->name('reports-detail');
 
 
 //get info admin -admin management

@@ -260,7 +260,7 @@ class CheckoutController extends Controller
         if ($order_status == 'Xem tất cả') {
             $all_order = DB::table('tbl_order')
                 ->join('tbl_customer', 'tbl_order.customer_id', '=', 'tbl_customer.customer_id')
-                ->join('shipper_order', 'tbl_order.order_id', '=', 'shipper_order.order_id')
+                ->leftjoin('shipper_order', 'tbl_order.order_id', '=', 'shipper_order.order_id')
                 ->select('tbl_order.*', 'tbl_customer.customer_name', 'shipper_order.note')
                 ->orderby('tbl_order.order_id', 'desc')
                 ->get();
@@ -270,11 +270,12 @@ class CheckoutController extends Controller
         } else {
             $all_order = DB::table('tbl_order')
                 ->join('tbl_customer', 'tbl_order.customer_id', '=', 'tbl_customer.customer_id')
-                ->join('shipper_order', 'tbl_order.order_id', '=', 'shipper_order.order_id')
+                ->leftjoin('shipper_order', 'tbl_order.order_id', '=', 'shipper_order.order_id')
                 ->select('tbl_order.*', 'tbl_customer.customer_name', 'shipper_order.note')
                 ->where('tbl_order.order_status', $order_status)
                 ->orderby('tbl_order.order_id', 'desc')
                 ->get();
+
             $manager_order = view('admin.manage_order')->with('all_order', $all_order)
                 ->with('order_status', $order_status);
             return view('admin_layout')->with('admin.all_product', $manager_order);
