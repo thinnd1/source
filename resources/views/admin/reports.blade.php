@@ -6,8 +6,8 @@
 
     <div class="col-xl-12 col-lg-12">
         <!-- nhập thông tin -->
-        <form action="{{URL::to('/reports-detail')}}" method="POST">
-            {{ csrf_field() }}
+        <form action="{{ route('reports-detail') }}" method="POST">
+            @csrf
             <div class="card mb-2">
                 <div class="card-header py-1">
                     <h6 class="m-0 font-weight-bold text-primary">Chọn thống kê</h6>
@@ -79,10 +79,10 @@
     </div>
 </div>
 <!-- Bootstrap core JavaScript-->
-<script src="{{asset('//backend/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/jquery/jquery.min.js')}}"></script>
 <!-- Core plugin JavaScript-->
 <!-- Page level plugins -->
-<script src="{{asset('//backend/vendor/chart.js/Chart.min.js')}}"></script>
+<script src="{{asset('/backend/vendor/chart.js/Chart.min.js')}}"></script>
 {{-- bar chart --}}
 <script>
     $('.chart-bar').hide();
