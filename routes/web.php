@@ -35,6 +35,8 @@ Route::prefix('shipper')->group(function () {
 
 Route::post('tra-hang', 'ShipperController@tra_hang')->name('tra_hang');
 Route::get('get_tra_hang', 'ProductController@get_tra_hang')->name('get_tra_hang');
+Route::get('confirm_tra_hang/{id}', 'ProductController@confirmReturnGood')->name('confirm_tra_hang');
+Route::get('cancel_tra_hang/{id}', 'ProductController@cancelReturnGood')->name('cancel_tra_hang');
 
 // Front-end
 

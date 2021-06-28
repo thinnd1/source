@@ -55,6 +55,26 @@ class ProductController extends Controller
         return view('admin_layout')->with('admin.all_product', $manager_product);
     }
 
+    public function confirmReturnGood($id)
+    {
+        // xac nhan
+        DB::table('tbl_return_goods')
+            ->where('id_return', $id)
+            ->update(['status' => 1]);
+
+        return redirect()->back();
+    }
+
+    public function cancelReturnGood($id)
+    {
+        // tu choi
+        DB::table('tbl_return_goods')
+            ->where('id_return', $id)
+            ->update(['status' => 2]);
+
+        return redirect()->back();
+    }
+
     public function save_product(Request $request)
     {
         $this->AuthLogin();

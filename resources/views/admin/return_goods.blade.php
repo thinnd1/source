@@ -33,7 +33,16 @@
                             <td>{{ $pro->product_name }}</td>
                             <td>{{ $pro->order_total }}</td>
                             <td>{{ $pro->ly_do }}</td>
-                            <td> Xac Nhan</td>
+                            <td>
+                                @if($pro->status == 0)
+                                    <a href="{{ route('confirm_tra_hang', ['id' => $pro->id_return]) }}" class="btn btn-warning">Xác nhận</a>
+                                    <a href="{{ route('cancel_tra_hang', ['id' => $pro->id_return]) }}" class="btn btn-danger">Từ chối</a>
+                                @elseif($pro->status == 1)
+                                    <button class="btn btn-warning">Xác nhận</button>
+                                @elseif($pro->status == 2)
+                                    <button class="btn btn-danger">Từ chối</button>
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
