@@ -77,8 +77,8 @@
         <!-- Central Modal Medium Info -->
     </div>
 
-    @if(isset($customer_id))
-        <h2 class="title text-center">Sản phẩm hay xem</h2>
+    @if(isset($customer_id) && count($product_detail) != 0)
+        <h2 class="title text-center">Sản phẩm đã xem</h2>
 
         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">

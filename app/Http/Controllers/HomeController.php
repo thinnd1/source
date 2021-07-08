@@ -64,7 +64,8 @@ class HomeController extends Controller
             ->join('tbl_product','tbl_product.product_id','=','view_product.id_product')
             ->where('id_customer', $customer_id)
             ->groupBy('id_product')
-            ->take(9)
+            ->take(3)
+            ->orderBy('view_product.id', 'desc')
             ->get();
 
         return view('pages.home')->with('all_slide', $all_slide)->with('selling_product', $selling_product)->with('category', $cate_product)->with('count_cart', $cart_count)->with('brand', $brand_product)->with('all_product', $all_product)

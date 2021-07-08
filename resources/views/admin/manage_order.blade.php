@@ -40,7 +40,7 @@
                         <th>Ngày đặt</th>
                         <th>Tổng giá tiền</th>
                         <th>Tình trạng</th>
-                        <th class="text-center">Chú ý</th>
+                        <th class="text-center">Ghi chú</th>
                         <th class="text-center">Xem -- Xóa</th>
                     </tr>
                 </thead>

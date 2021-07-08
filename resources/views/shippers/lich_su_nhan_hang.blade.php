@@ -32,7 +32,7 @@
                                 <th>Tên Khách Hàng</th>
                                 <th>Tổng giá tiền</th>
                                 <th>Địa chỉ</th>
-                                <th>Lý do fail</th>
+                                <th>Lý do thất bại</th>
                                 <th width="15%">Trạng thái</th>
                             </tr>
                             </thead>
