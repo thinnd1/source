@@ -49,7 +49,6 @@ class ProductController extends Controller
         $this->AuthLogin();
         $all_product = DB::table('tbl_return_goods')
             ->join('tbl_order', 'tbl_order.order_id', '=', 'tbl_return_goods.id_order')
-            ->join('tbl_order_detail', 'tbl_order_detail.order_id', '=', 'tbl_order.order_id')
             ->join('tbl_product', 'tbl_product.product_id', '=', 'tbl_return_goods.id_product')
             ->orderBy('tbl_return_goods.id_return', 'asc')
             ->get();
