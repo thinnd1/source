@@ -34,7 +34,7 @@
             @enderror
         </div>
 
-        <a href="{{ route('formRegisterShipper') }}">Dang ky</a>
+        <a href="{{ route('formRegisterShipper') }}">Đăng ký</a>
         <br>
 
         <button type="submit" class="btn btn-primary">Ok</button>

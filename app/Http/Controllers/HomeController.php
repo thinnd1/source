@@ -63,7 +63,7 @@ class HomeController extends Controller
         $product_detail = DB::table('view_product')
             ->join('tbl_product','tbl_product.product_id','=','view_product.id_product')
             ->where('id_customer', $customer_id)
-            ->groupBy('id_product')
+            ->groupBy('view_product.id_product')
             ->take(3)
             ->orderBy('view_product.id', 'desc')
             ->get();

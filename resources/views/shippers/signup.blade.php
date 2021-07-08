@@ -51,7 +51,7 @@
             @enderror
         </div>
 
-        <p>Ban co tai khoan, <a href="{{ route('formLoginShipper') }}"> Dang nhap </a></p>
+        <p>Bạn có tài khoản, <a href="{{ route('formLoginShipper') }}"> Đăng Nhập </a></p>
         <button type="submit" class="btn btn-primary">Đăng ký</button>
     </form>
 </div>
