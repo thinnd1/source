@@ -8,7 +8,7 @@
             <div class="col-12 col-sm-6 col-md-6">
                 <div class="card border border-primary mb-3">
                     <div style="align:center" class="card-header p-2 text-primary border-botton border-primary text-center">
-                        <b>THÔNG TIN ĐƠN HÀNG</b>
+                        <b>123THÔNG TIN ĐƠN HÀNG</b>
                     </div>
                     <div class="card-body">
                         <div class="card-form p-2">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
             </div>
-         
+
         </div>
     </div>
 </div>

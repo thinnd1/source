@@ -218,6 +218,15 @@ class ProductController extends Controller
 
         Session::put('all_product_detail',$all_product_detail);
 
+        $customer_id = Session::get('customer_id');
+
+        if(isset($customer_id)) {
+            DB::table('view_product')->insert([
+                'id_product' => $product_id,
+                'id_customer' => $customer_id
+            ]);
+        }
+
         return view('pages.product.show_details')->with('all_slide', $all_slide)->with('selling_product', $selling_product)->with('category', $cate_product)->with('brand', $brand_product)->with('details_product', $details_product)
         ->with('related_product', $recommend_products)->with("all_product_detail", $all_product_detail);
     }

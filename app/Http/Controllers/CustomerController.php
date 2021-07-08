@@ -54,7 +54,7 @@ class CustomerController extends Controller
         $order_by_id_customer = DB::table('tbl_order')
         ->join('tbl_shipping', 'tbl_order.shipping_id', '=', 'tbl_shipping.shipping_id')
         ->select('tbl_order.*', 'tbl_shipping.*')->where('order_id', $order_id)->first();
-        
+
         $all_order_detail_view_customer = DB::table('tbl_order_detail')->join('tbl_product', 'tbl_product.product_id', '=', 'tbl_order_detail.product_id')
         ->where('order_id', $order_id)
         ->orderby('order_detail_id', 'asc')->select('tbl_order_detail.*')->get();
@@ -110,19 +110,19 @@ class CustomerController extends Controller
         $this->Custommer_Login();
         $order_id = $request->order_id;
         $customer_id = Session::get('customer_id');
-        
+
         $order_by_id = DB::table('tbl_order')
             ->join('tbl_customer', 'tbl_order.customer_id', '=', 'tbl_customer.customer_id')
             ->join('tbl_shipping', 'tbl_order.shipping_id', '=', 'tbl_shipping.shipping_id')
             ->select('tbl_order.*', 'tbl_customer.*', 'tbl_shipping.*')->where('order_id', $order_id)
             ->where('tbl_order.customer_id', $customer_id)->first();
-            
+
         $all_order_detail = DB::table('tbl_order_detail')->join('tbl_product', 'tbl_product.product_id', '=', 'tbl_order_detail.product_id')
         ->where('order_id', $order_id)
         ->orderby('order_detail_id', 'asc')->select('tbl_order_detail.*','tbl_product.product_image')->get();
 
         $count_quantity = DB::table('tbl_order_detail')->where('order_id', $order_id)->orderby('order_detail_id', 'asc')->sum('product_sales_quantity');
-        
+
         return response()->json([
             'order_by_id' => $order_by_id,
             'order_detail' => $all_order_detail,
@@ -178,6 +178,3 @@ class CustomerController extends Controller
     }
 
 }
-
-
-    

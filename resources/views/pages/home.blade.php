@@ -77,6 +77,39 @@
         <!-- Central Modal Medium Info -->
     </div>
 
+    @if(isset($customer_id))
+        <h2 class="title text-center">Sản phẩm hay xem</h2>
+
+        <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    @foreach($product_detail as $key => $pr)
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img style="height:250px" src="/uploads/product/{{ $pr->product_image }}"
+                                             alt=""/>
+                                        <h2>{{number_format($pr->product_price).' '.'VND'}}</h2>
+                                        <p><b>{{ $pr->product_name }}</b></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    @endforeach
+                </div>
+            </div>
+            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    @endif
+
     <script src="{{asset('/frontend/js/jquery.js')}}"></script>
     <script>
         $(document).ready(function () {

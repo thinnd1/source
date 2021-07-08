@@ -137,7 +137,9 @@ class ShipperController extends Controller
 
     public function order_thanh_cong($id)
     {
-        $order_thanh_cong =  DB::table('tbl_order')->update([
+        $order_thanh_cong =  DB::table('tbl_order')
+            ->where('order_id', $id)
+            ->update([
             'order_status' => "Xác nhận thanh toán"
         ]);
         return \redirect()->back();
@@ -145,7 +147,9 @@ class ShipperController extends Controller
 
     public function order_that_bai($id)
     {
-        $order_that_bai =  DB::table('tbl_order')->update([
+        $order_that_bai =  DB::table('tbl_order')
+            ->where('order_id', $id)
+            ->update([
             'order_status' => "Giao Hàng Thất Bại"
         ]);
         return \redirect()->back();
@@ -179,6 +183,7 @@ class ShipperController extends Controller
     {
         DB::table('tbl_return_goods')->insert([
             'id_order' => $request->id_order,
+            'id_product' => $request->id_product,
             'ly_do' => $request->ly_do
         ]);
         return \redirect()->back();

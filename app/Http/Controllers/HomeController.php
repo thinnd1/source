@@ -59,8 +59,16 @@ class HomeController extends Controller
         Session::put('all_product_asc_t',$all_product_asc_t);
         Session::put('all_product_desc_t',$all_product_desc_t);
 
+        $customer_id = Session::get('customer_id');
+        $product_detail = DB::table('view_product')
+            ->join('tbl_product','tbl_product.product_id','=','view_product.id_product')
+            ->where('id_customer', $customer_id)
+            ->groupBy('id_product')
+            ->take(9)
+            ->get();
 
-        return view('pages.home')->with('all_slide', $all_slide)->with('selling_product', $selling_product)->with('category', $cate_product)->with('count_cart', $cart_count)->with('brand', $brand_product)->with('all_product', $all_product);
+        return view('pages.home')->with('all_slide', $all_slide)->with('selling_product', $selling_product)->with('category', $cate_product)->with('count_cart', $cart_count)->with('brand', $brand_product)->with('all_product', $all_product)
+            ->with('product_detail', $product_detail)->with('customer_id', $customer_id);
     }
 
     public function price_home_asc(){

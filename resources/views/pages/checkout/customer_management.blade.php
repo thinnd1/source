@@ -77,7 +77,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -94,6 +94,12 @@
                         <label for="recipient-name" class="col-form-label">Mã HD</label>
                         <input type="text" name="id_order" class="form-control" id="recipient-name">
                     </div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Mã Sản Phẩm</label>
+                        <input type="text" name="id_product" class="form-control" id="recipient-name">
+                    </div>
+
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Lý do:</label>
                         <textarea class="form-control" name="ly_do" id="message-text"></textarea>
@@ -196,6 +202,7 @@
                 <table class="table table-bordered m-4" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="text-center">
+                            <th class="text-primary">ID</th>
                             <th class="text-primary">Tên sản phẩm</th>
                             <th class="text-primary">Số lượng</th>
                             <th class="text-primary">Size</th>
@@ -255,6 +262,7 @@
                     data2.forEach(element => {
                         rows = rows + `
                                             <tr class="row-for-order-detail">
+                                                <td class="text-dark" id="product_id">` + element.product_id + `</td>
                                                 <td class="text-dark">` + element.product_name + `</td>
                                                 <td class="text-dark">` + element.product_sales_quantity + `</td>
                                                 <td class="text-dark">` + element.product_size + `</td>
