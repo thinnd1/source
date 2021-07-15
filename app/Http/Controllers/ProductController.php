@@ -50,7 +50,7 @@ class ProductController extends Controller
         $all_product = DB::table('tbl_return_goods')
             ->join('tbl_order', 'tbl_order.order_id', '=', 'tbl_return_goods.id_order')
             ->join('tbl_product', 'tbl_product.product_id', '=', 'tbl_return_goods.id_product')
-            ->orderBy('tbl_return_goods.id_return', 'asc')
+            ->orderBy('tbl_return_goods.id_return', 'desc')
             ->get();
         $manager_product = view('admin.return_goods')->with('all_product', $all_product);
         return view('admin_layout')->with('admin.all_product', $manager_product);

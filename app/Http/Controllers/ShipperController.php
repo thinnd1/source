@@ -91,6 +91,7 @@ class ShipperController extends Controller
         $chi_tiet_order = DB::table('tbl_shipping')
             ->join('tbl_order', 'tbl_order.shipping_id', '=', 'tbl_shipping.shipping_id')
             ->where('tbl_shipping.shipping_id', $id)
+            ->orderBy('tbl_shipping.shipping_id')
             ->first();
 
         return view('shippers.chi_tiet', compact('chi_tiet_order'));
@@ -110,7 +111,7 @@ class ShipperController extends Controller
                 'order_id' => $order_id[0]
             ]);
 
-        return redirect()->back();
+        return redirect()->route('history_shipper');
     }
 
     public function shipper_nhan_hang($id_order)
@@ -130,6 +131,7 @@ class ShipperController extends Controller
             ->join('shipper_order', 'tbl_order.order_id', '=', 'shipper_order.order_id')
             ->join('tbl_shippers', 'shipper_order.shipper_id', '=', 'tbl_shippers.id')
             ->where('tbl_shippers.id', $shipper_id)
+            ->orderBy('tbl_order.order_id', 'desc')
             ->get();
 
         return view('shippers.lich_su_nhan_hang', compact('lich_su_nhan'));
