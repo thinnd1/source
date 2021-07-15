@@ -31,7 +31,7 @@
                         <tr>
                             <td>{{ $pro->id_order }}</td>
                             <td>{{ $pro->product_name }}</td>
-                            <td>{{ $pro->order_total }}</td>
+                            <td>{{ number_format($pro -> order_total, 0) }} VND</td>
                             <td>{{ $pro->ly_do }}</td>
                             <td>
                                 @if($pro->status == 0)

@@ -41,7 +41,7 @@
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $order->customer_name }}</td>
                                         <td>{{ $order->created_at }}</td>
-                                        <td>{{ $order->order_total }}</td>
+                                        <td>{{ number_format($order -> order_total, 0) }} VND</td>
                                         <td>{{ $order->order_status }}</td>
                                         <td>
                                             <a href="{{ route('list-order-detail', ['id' => $order->shipping_id ]) }}" class="btn btn-warning">Chi tiết</a>

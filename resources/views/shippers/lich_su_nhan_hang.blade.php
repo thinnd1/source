@@ -42,7 +42,7 @@
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $item->order_id }}</td>
                                         <td>{{ $item->shipping_name }}</td>
-                                        <td>{{ $item->order_total }}</td>
+                                        <td>{{ number_format($item->order_total, 0) }} VND</td>
                                         <td>{{ $item->shipping_address }}</td>
                                         <td>{{ $item->note }}</td>
                                         <td>
