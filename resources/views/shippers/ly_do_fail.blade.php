@@ -17,10 +17,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="form-group row">
-                        <form action="">
+                        <form action="{{ route('ly_do_fail', ['id' => $ly_do->id_shipper_order]) }}" method="POST">
+                            @csrf
+
                             <label for="inputUser" class="col-sm-2 col-form-label">Nhập lý do:</label>
                             <div class="col-sm-10">
-                                <input type="text" name="ly_do">
+                                <input type="text" name="note_ly_do">
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit</button>
