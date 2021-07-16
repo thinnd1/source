@@ -31,6 +31,7 @@
                                 <th>Mã Đơn hàng</th>
                                 <th>Tên Khách Hàng</th>
                                 <th>Tổng giá tiền</th>
+                                <th>Số điện thoại</th>
                                 <th>Địa chỉ</th>
                                 <th>Lý do thất bại</th>
                                 <th width="15%">Trạng thái</th>
@@ -43,6 +44,7 @@
                                         <td>{{ $item->order_id }}</td>
                                         <td>{{ $item->shipping_name }}</td>
                                         <td>{{ number_format($item->order_total, 0) }} VND</td>
+                                        <td>{{ $item->customer_phone }}</td>
                                         <td>{{ $item->shipping_address }}</td>
                                         <td>{{ $item->note }}</td>
                                         <td>

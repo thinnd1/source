@@ -36,6 +36,9 @@
                             </tr>
                             </thead>
                             <tobdy>
+                                @if($lich_su_nhan > 2)
+                                    <td colspan="6" style="text-align:center"> Bạn chọn quá 3 đơn rồi </td>
+                                @else
                                 @foreach ($all_order as $index => $order)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
@@ -48,6 +51,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                @endif
                             </tobdy>
                         </table>
                     </div>

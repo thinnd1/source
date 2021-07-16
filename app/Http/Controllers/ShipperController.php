@@ -73,6 +73,17 @@ class ShipperController extends Controller
     {
         $this->AuthLogin();
         $order_status = 'Đang chờ xử lý';
+        $shipping = 'Đang giao hàng';
+        $shipper_id = Session::get('shipper_id');
+
+        $lich_su_nhan = DB::table('tbl_order')
+            ->join('tbl_shipping', 'tbl_order.shipping_id', '=', 'tbl_shipping.shipping_id')
+            ->join('tbl_customer', 'tbl_order.customer_id', '=', 'tbl_customer.customer_id')
+            ->join('shipper_order', 'tbl_order.order_id', '=', 'shipper_order.order_id')
+            ->join('tbl_shippers', 'shipper_order.shipper_id', '=', 'tbl_shippers.id')
+            ->where('tbl_shippers.id', $shipper_id)
+            ->where('tbl_order.order_status', $shipping)
+            ->count();
 
         $all_order = DB::table('tbl_order')
             ->join('tbl_customer', 'tbl_order.customer_id', '=', 'tbl_customer.customer_id')
@@ -82,7 +93,8 @@ class ShipperController extends Controller
             ->paginate('10');
 
         return view('shippers.home')->with([
-            'all_order' => $all_order
+            'all_order' => $all_order,
+            'lich_su_nhan' => $lich_su_nhan
         ]);
     }
 
