@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -198,7 +199,8 @@ class ShipperController extends Controller
         DB::table('tbl_return_goods')->insert([
             'id_order' => $request->id_order,
             'id_product' => $request->id_product,
-            'ly_do' => $request->ly_do
+            'ly_do' => $request->ly_do,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
         return \redirect()->back();
     }

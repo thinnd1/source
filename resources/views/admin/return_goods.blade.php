@@ -1,7 +1,7 @@
 @extends('admin_layout')
 @section('admin_content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Sản phẩm</h1>
+    <h1 class="h3 mb-2 text-gray-800">Sản phẩm trả</h1>
     <?php
     $message = Session::get('message');
     if($message){
@@ -12,7 +12,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Danh sách sản phẩm</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách sản phẩm trả</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -23,6 +23,7 @@
                         <th>Tên sản phẩm</th>
                         <th>Giá sản phẩm</th>
                         <th>Lý Do</th>
+                        <th>Ngày trả</th>
                         <th> </th>
                     </tr>
                     </thead>
@@ -33,6 +34,7 @@
                             <td>{{ $pro->product_name }}</td>
                             <td>{{ number_format($pro -> order_total, 0) }} VND</td>
                             <td>{{ $pro->ly_do }}</td>
+                            <td>{{ $pro->created_at }}</td>
                             <td>
                                 @if($pro->status == 0)
                                     <a href="{{ route('confirm_tra_hang', ['id' => $pro->id_return]) }}" class="btn btn-warning">Xác nhận</a>
