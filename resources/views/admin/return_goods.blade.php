@@ -23,7 +23,8 @@
                         <th>Tên sản phẩm</th>
                         <th>Giá sản phẩm</th>
                         <th>Lý Do</th>
-                        <th>Ngày trả</th>
+                        <th>Tên khách hàng</th>
+                        <th>Số điện thoại</th>
                         <th> </th>
                     </tr>
                     </thead>
@@ -34,7 +35,8 @@
                             <td>{{ $pro->product_name }}</td>
                             <td>{{ number_format($pro -> order_total, 0) }} VND</td>
                             <td>{{ $pro->ly_do }}</td>
-                            <td>{{ $pro->created_at }}</td>
+                            <td>{{ $pro->customer_name }}</td>
+                            <td>{{ $pro->customer_phone }}</td>
                             <td>
                                 @if($pro->status == 0)
                                     <a href="{{ route('confirm_tra_hang', ['id' => $pro->id_return]) }}" class="btn btn-warning">Xác nhận</a>
